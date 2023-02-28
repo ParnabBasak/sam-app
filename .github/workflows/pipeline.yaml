@@ -38,6 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
       - run: |
           # trigger the tests here
 
@@ -50,6 +53,9 @@ jobs:
         with:
           python-version: '3.10'
       - uses: aws-actions/setup-sam@v2
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
 
       - name: Assume the testing pipeline user role
         uses: aws-actions/configure-aws-credentials@v1-node16
@@ -187,6 +193,9 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: packaged-testing.yaml
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
 
       - name: Assume the testing pipeline user role
         uses: aws-actions/configure-aws-credentials@v1-node16
@@ -215,6 +224,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
       - run: |
           # trigger the integration tests here
 
