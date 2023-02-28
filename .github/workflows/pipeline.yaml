@@ -43,6 +43,7 @@ jobs:
           dotnet-version: '6.0.x'
       - run: |
           # trigger the tests here
+          dotnet test test/HelloWorld.Test/HelloWorld.Tests.csproj
 
   delete-feature:
     if: startsWith(github.event.ref, 'feature') && github.event_name == 'delete'
